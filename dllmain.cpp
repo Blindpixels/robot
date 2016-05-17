@@ -9,7 +9,7 @@ bool Algo1(unsigned short S, unsigned short L, unsigned short R, int Init, int *
     
     double result, integral, last_proportional, error, derivative = 1;
     double target = 992; // 0b000001111100000 
-    double Kp = 1 , Ki = 0, Kd = 0;
+    double Kp = 0.1 , Ki = 0.000001, Kd = 0.000001;
 
     last_proportional = 0;
     integral = 0;
@@ -20,7 +20,7 @@ bool Algo1(unsigned short S, unsigned short L, unsigned short R, int Init, int *
     result = error + integral + derivative;
 
     if(result == 0 || result == 1040 || result == 3096 || result == 7196 || result == 15390 || result == 31775){
-    	// dümdüz gitmesi için, 70ten sonra dönemiyor
+    	// dÃ¼mdÃ¼z gitmesi iÃ§in, 70ten sonra dÃ¶nemiyor
         *VL = 70;
         *VR = 70;
     }else{
@@ -33,7 +33,7 @@ bool Algo1(unsigned short S, unsigned short L, unsigned short R, int Init, int *
 }
 
 bool Algo2(unsigned short S, unsigned short L, unsigned short R, int Init, int * VL, int * VR)
-{ // Robot sadece düz gidecek. Sensör kontrolü yok.
+{ // Robot sadece dÃ¼z gidecek. SensÃ¶r kontrolÃ¼ yok.
 *VL = 5;
 *VR = 5;
 }
